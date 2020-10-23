@@ -1,10 +1,17 @@
 import React from 'react';
-import styled, { keyframes } from 'styled-components';
+import styled from 'styled-components';
 
 import { colors } from '@/styles/theme';
 
+import ResultItem from './ResultItem';
+
+export interface Item {
+  name: string;
+  count: number;
+}
+
 type Props = {
-  items: { name: string; count: number }[];
+  items: Item[];
 };
 
 const Results: React.FC<Props> = ({ items }) => {
@@ -13,18 +20,12 @@ const Results: React.FC<Props> = ({ items }) => {
       <SecondTitle>TOP TERMS</SecondTitle>
       <ItemListWrapper>
         <TitleWrapper>
-          <span className="title">TERMS</span>
-          <span className="bar">% OF TOTAL POSTS</span>
-          <span className="count"># OF POSTS</span>
+          <div className="title">TERMS</div>
+          <div className="bar">% OF TOTAL POSTS</div>
+          <div className="count"># OF POSTS</div>
         </TitleWrapper>
         {items.map(item => (
-          <ItemWrapper key={item.name}>
-            <span className="title">{item.name}</span>
-            <span className="bar">
-              <ItemBar percent={item.count} />
-            </span>
-            <span className="count">{item.count}</span>
-          </ItemWrapper>
+          <ResultItem key={item.name} item={item} />
         ))}
       </ItemListWrapper>
     </>
@@ -69,41 +70,6 @@ const TitleWrapper = styled.div`
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
-  }
-`;
-
-const ItemWrapper = styled.div`
-  display: flex;
-  justify-content: space-between;
-  padding-left: 0.3rem;
-  padding-right: 0.3rem;
-  margin: 0.5rem 0;
-
-  > .title {
-    font-weight: bold;
-    color: black;
-  }
-`;
-
-const createStretchKeyframes = (percent: number) => keyframes`
-  from { width: 0px; }
-  to { width: ${percent}%; }
-`;
-
-const ItemBar = styled.div<{ percent: number }>`
-  position: relative;
-  width: 100%;
-  height: 20px;
-  background-color: ${colors.gray[200]};
-
-  &:before {
-    content: '';
-    position: absolute;
-    left: 0;
-    top: 0;
-    height: 100%;
-    animation: ${p => createStretchKeyframes(p.percent)} 1s ease-in-out forwards 0.3s;
-    background-color: ${p => p.theme.colors.main};
   }
 `;
 

@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 const CardFooter = () => {
-  return <Wrapper>footer</Wrapper>;
+  return <Wrapper>FOOTER</Wrapper>;
 }
 
 const Wrapper = styled.div`
