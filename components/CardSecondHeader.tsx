@@ -1,5 +1,8 @@
 import Link from 'next/link';
 import React, { useState } from 'react';
+import { AiOutlineTwitter } from 'react-icons/ai'
+import { ImFacebook, ImYoutube2 } from 'react-icons/im'
+import { SiInstagram } from 'react-icons/si'
 import styled from 'styled-components';
 
 type Props = {
@@ -8,22 +11,23 @@ type Props = {
 
 const CardSecondHeader: React.FC<Props> = ({ page }) => {
   const [isHidden, setIsHidden] = useState(false);
+  
   return (
     <Wrapper isHidden={isHidden}>
       <Link href="/" passHref>
         <StyledLink isActive={page === undefined}>ALL</StyledLink>
       </Link>
       <Link href="/?page=twitter" passHref>
-        <StyledLink isActive={page === 'twitter'}>T</StyledLink>
+        <StyledLink isActive={page === 'twitter'}><AiOutlineTwitter /></StyledLink>
       </Link>
       <Link href="/?page=facebook" passHref>
-        <StyledLink isActive={page === 'facebook'}>F</StyledLink>
+        <StyledLink isActive={page === 'facebook'}><ImFacebook /></StyledLink>
       </Link>
       <Link href="/?page=instagram" passHref>
-        <StyledLink isActive={page === 'instagram'}>I</StyledLink>
+        <StyledLink isActive={page === 'instagram'}><SiInstagram /></StyledLink>
       </Link>
       <Link href="/?page=youtube" passHref>
-        <StyledLink isActive={page === 'youtube'}>Y</StyledLink>
+        <StyledLink isActive={page === 'youtube'}><ImYoutube2 size="1.25rem"/></StyledLink>
       </Link>
       <HideButton onClick={() => setIsHidden(true)}>HIDE</HideButton>
     </Wrapper>
@@ -73,6 +77,7 @@ const HideButton = styled.button`
   border-left: solid 0.5px rgba(255, 255, 255, 0.2);
   color: white;
   height: 100%;
+  font-weight: bold;
 `;
 
 export default CardSecondHeader;

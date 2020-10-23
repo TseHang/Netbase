@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
+    "export": "next build && next export",
     "build:analyze": "ANALYZE=true yarn build",
     "start": "next start",
     "lint:dev": "tslint -p ./tsconfig.json"
@@ -14,6 +15,7 @@
     "query-string": "^6.13.6",
     "react": "16.14.0",
     "react-dom": "16.14.0",
+    "react-icons": "^3.11.0",
     "react-spring": "^8.0.27",
     "styled-components": "^5.2.0",
     "styled-normalize": "^8.0.7"

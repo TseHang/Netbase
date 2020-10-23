@@ -5,7 +5,7 @@ const CardHeader: React.FC = () => {
   return (
     <Wrapper>
       <p>CARD</p>
-      <Button>?</Button>
+      <Button onClick={() => alert('May I help you ?') }>?</Button>
     </Wrapper>
   );
 };
