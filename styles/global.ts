@@ -1,0 +1,41 @@
+import { createGlobalStyle } from 'styled-components';
+import { normalize } from 'styled-normalize';
+
+export default createGlobalStyle`
+  ${normalize}
+
+  * {
+    box-sizing: border-box;
+  }
+
+  html,
+  body,
+  #__next {
+    height: 100%;
+    color: ${p => p.theme.colors.documentColor};
+  }
+
+  /*
+  System font-stack
+  https://css-tricks.com/snippets/css/system-font-stack/
+  */
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI',
+      Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
+      'Segoe UI Symbol';
+  }
+
+  input, button {
+    outline: none;
+    border: none;
+    background: none;
+
+    &:focus {
+      outline: none;
+    }
+  }
+  
+  a {
+    color: inherit;
+  }
+`;
