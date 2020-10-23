@@ -1,19 +1,16 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import fakeData from '@/fakeData';
-
-import Results from './Results';
+import Results, { Item } from './Results';
 
 type Props = {
   page: string;
+  items: Item[];
 };
 
-const CardContent: React.FC<Props> = ({ page }) => {
+const CardContent: React.FC<Props> = ({ page, items }) => {
   return (
-    <Wrapper>
-      {page ? `Content: ${page}` : <Results items={fakeData} />}
-    </Wrapper>
+    <Wrapper>{page ? `Content: ${page}` : <Results items={items} />}</Wrapper>
   );
 };
 
