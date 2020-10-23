@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 
 type Props = {
@@ -7,8 +7,9 @@ type Props = {
 };
 
 const CardSecondHeader: React.FC<Props> = ({ page }) => {
+  const [isHidden, setIsHidden] = useState(false);
   return (
-    <Wrapper>
+    <Wrapper isHidden={isHidden}>
       <Link href="/" passHref>
         <StyledLink isActive={page === undefined}>ALL</StyledLink>
       </Link>
@@ -24,12 +25,12 @@ const CardSecondHeader: React.FC<Props> = ({ page }) => {
       <Link href="/?page=youtube" passHref>
         <StyledLink isActive={page === 'youtube'}>Y</StyledLink>
       </Link>
-      <HideButton>HIDE</HideButton>
+      <HideButton onClick={() => setIsHidden(true)}>HIDE</HideButton>
     </Wrapper>
   );
 };
 
-const Wrapper = styled.div`
+const Wrapper = styled.div<{ isHidden: boolean }>`
   position: relative;
   display: flex;
   justify-content: center;
@@ -38,10 +39,15 @@ const Wrapper = styled.div`
   font-weight: bold;
   color: white;
   padding: 0 1rem;
+  max-height: ${p => p.isHidden ? '0px' : '100px'};
+  overflow: hidden;
+  transition: max-height .25s linear;
 `;
 
 const StyledLink = styled.a<{ isActive: boolean }>`
   cursor: pointer;
+  display: flex;
+  align-items: center;
   text-decoration: none;
   margin: 0 0.5rem;
   padding: .25rem;

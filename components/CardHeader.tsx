@@ -27,7 +27,6 @@ const Wrapper = styled.div`
 
 const Button = styled.button`
   position: absolute;
-  top: 0;
   right: 1rem;
   font-size: 1.5rem;
   font-weight: 900;
