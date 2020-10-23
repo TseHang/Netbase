@@ -15,13 +15,11 @@ const Card = () => {
     page = parsed.page as string;
   }
 
-  console.log('index', page);
-
   return (
     <Wrapper>
       <CardHeader/>
       <CardSecondHeader page={page}/>
-      <CardContent />
+      <CardContent page={page}/>
       <CardFooter />
     </Wrapper>
   );

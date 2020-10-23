@@ -33,13 +33,14 @@ const CardSecondHeader: React.FC<Props> = ({ page }) => {
 const Wrapper = styled.div<{ isHidden: boolean }>`
   position: relative;
   display: flex;
+  flex: 1;
   justify-content: center;
   align-items: center;
   background-color: ${p => p.theme.colors.contentBackground};
   font-weight: bold;
   color: white;
   padding: 0 1rem;
-  max-height: ${p => p.isHidden ? '0px' : '100px'};
+  max-height: ${p => p.isHidden ? '0px' : '28px'};
   overflow: hidden;
   transition: max-height .25s linear;
 `;
