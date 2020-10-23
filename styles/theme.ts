@@ -47,5 +47,7 @@ export const theme: DefaultTheme = {
     main: colors.primary[500],
     lightMain: colors.primary[100],
     secondary: colors.secondary[500],
+    border: colors.gray[600],
+    contentBackground: '#121212',
   },
 };

@@ -11,7 +11,8 @@ export default createGlobalStyle`
   html,
   body,
   #__next {
-    height: 100%;
+    width: 100vw;
+    height: 100vh;
     color: ${p => p.theme.colors.documentColor};
   }
 

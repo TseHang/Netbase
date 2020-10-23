@@ -11,6 +11,8 @@ declare module 'styled-components' {
       documentColor: string;
       lightMain: string;
       secondary: string;
+      border: string;
+      contentBackground: string;
     };
   }
 }
